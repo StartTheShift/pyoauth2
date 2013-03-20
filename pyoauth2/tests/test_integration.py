@@ -107,3 +107,8 @@ class IntegrationTest(unittest.TestCase):
         self.assertEquals(40, len(data['refresh_token']))
         self.assertEquals('Bearer', data['token_type'])
         self.assertEquals(3600, data['expires_in'])
+
+#main function for unittest added
+if __name__ == '__main__':
+    unittest.main()
+
