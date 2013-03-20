@@ -37,3 +37,8 @@ class AuthorizationProviderTest(unittest.TestCase):
         self.assertEquals('https://example.com/oauth?'
                           'error=unsupported_response_type',
                           response.headers['Location'])
+
+#main function for unittest added
+if __name__ == '__main__':
+    unittest.main()
+

@@ -27,3 +27,8 @@ class ClientTest(unittest.TestCase):
         self.assertEquals('some.client', params['client_id'])
         self.assertEquals('https://example.com/pyoauth2redirect', params['redirect_uri'])
         self.assertEquals('app.state', params['state'])
+
+#main function for unittest added
+if __name__ == '__main__':
+    unittest.main()
+
