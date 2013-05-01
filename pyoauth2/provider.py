@@ -569,18 +569,18 @@ class ResourceProvider(Provider):
 
     def get_authorization(self):
         """Get authorization object representing status of authentication."""
-        self.auth = self.authorization_class()
+        auth = self.authorization_class()
         header = self.get_authorization_header()
         if not header or not header.split:
             return auth
         header = header.split()
         if len(header) > 1 and header[0] == 'Bearer':
-            self.auth.is_oauth = True
+            auth.is_oauth = True
             access_token = header[1]
-            self.validate_access_token(access_token, self.auth)
-            if not self.auth.is_valid:
-                self.auth.error = 'access_denied'
-        return self.auth
+            self.validate_access_token(access_token, auth)
+            if not auth.is_valid:
+                auth.error = 'access_denied'
+        return auth
 
     def get_authorization_header(self):
         raise NotImplementedError('Subclasses must implement ' \
