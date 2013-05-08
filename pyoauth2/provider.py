@@ -368,12 +368,12 @@ class AuthorizationProvider(Provider):
         is_valid_redirect_uri = self.validate_redirect_uri(client_id,
                                                            redirect_uri)
 
-        scope = params.get('scope', '')
+        scope = params.get('scope', None)
 
         # 'scope' is an optional param for getting access token
         # https://github.com/StartTheShift/pyoauth2/issues/9
         is_valid_scope = True
-        if scope is not '':
+        if scope is not None:
             is_valid_scope = self.validate_scope(client_id, scope)
 
         data = self.from_authorization_code(client_id, code)
