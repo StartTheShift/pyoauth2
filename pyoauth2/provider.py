@@ -369,8 +369,14 @@ class AuthorizationProvider(Provider):
                                                            redirect_uri)
 
         scope = params.get('scope', '')
-        is_valid_scope = self.validate_scope(client_id, scope)
-        data = self.from_authorization_code(client_id, code, scope)
+
+        # 'scope' is an optional param for getting access token
+        # https://github.com/StartTheShift/pyoauth2/issues/9
+        is_valid_scope = True
+        if scope is not '':
+            is_valid_scope = self.validate_scope(client_id, scope)
+
+        data = self.from_authorization_code(client_id, code)
         is_valid_grant = data is not None
 
         # Return proper error responses on invalid conditions
@@ -501,7 +507,7 @@ class AuthorizationProvider(Provider):
         raise NotImplementedError('Subclasses must implement ' \
                                   'validate_access.')
 
-    def from_authorization_code(self, client_id, code, scope):
+    def from_authorization_code(self, client_id, code):
         raise NotImplementedError('Subclasses must implement ' \
                                   'from_authorization_code.')
 
