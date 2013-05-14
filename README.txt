@@ -29,7 +29,7 @@ Supported Request Flows
     (1B) Access Token Request :: OAuth 2 Section 4.1.3
 
         [Server side only]
-        Request: GET /get_access_token
+        Request: POST /get_access_token
                         ?grant_type=authorization_code
                         &client_id={CLIENT_ID}
                         &client_secret={CLIENT_SECRET}
