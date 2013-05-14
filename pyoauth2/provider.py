@@ -320,7 +320,6 @@ class AuthorizationProvider(Provider):
 
         # Save information to be used to validate later requests
         self.persist_token_information(client_id=client_id,
-                                       scope=scope,
                                        access_token=access_token,
                                        token_type=token_type,
                                        expires_in=expires_in,
@@ -389,7 +388,6 @@ class AuthorizationProvider(Provider):
 
         # Save information to be used to validate later requests
         self.persist_token_information(client_id=client_id,
-                                       scope=scope,
                                        access_token=access_token,
                                        token_type=token_type,
                                        expires_in=expires_in,
@@ -508,7 +506,7 @@ class AuthorizationProvider(Provider):
         raise NotImplementedError('Subclasses must implement ' \
                                   'persist_authorization_code.')
 
-    def persist_token_information(self, client_id, scope, access_token,
+    def persist_token_information(self, client_id, access_token,
                                   token_type, expires_in, refresh_token,
                                   data):
         raise NotImplementedError('Subclasses must implement ' \
