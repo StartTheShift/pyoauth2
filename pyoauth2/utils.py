@@ -1,13 +1,15 @@
 import string
 import urllib
 import urlparse
-from Crypto.Random import random
+import string
+from random import SystemRandom
 
 UNICODE_ASCII_CHARACTERS = (string.ascii_letters.decode('ascii') +
     string.digits.decode('ascii'))
 
 
 def random_ascii_string(length):
+    random = SystemRandom()
     return ''.join([random.choice(UNICODE_ASCII_CHARACTERS) for x in xrange(length)])
 
 
