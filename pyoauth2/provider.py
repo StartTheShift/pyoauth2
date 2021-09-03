@@ -138,7 +138,7 @@ class AuthorizationProvider(Provider):
         discard_refresh_token(self, client_id, refresh_token)
             # Return value ignored
 
-    Optionally, the following may be overridden to acheive desired behavior:
+    Optionally, the following may be overridden to achieve desired behavior:
 
         @property
         token_length(self)
